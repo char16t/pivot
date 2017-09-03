@@ -35,7 +35,7 @@
             [(cons k ks) v']
           ))))
 
-(defn flatten-data [m ks]
+(defn- flatten-data [m ks]
   (->> (seq (flatten-keys m))
        (map #(concat (first %) (second %)))
        (map (partial zipmap ks))
