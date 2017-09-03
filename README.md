@@ -8,7 +8,7 @@ analyze, explore and present your data.
 Our data set consists of 10 records and 6 fields. Order ID, Product,
 Category, Amount, Date and Country.
 
-```
+```clojure
 (def data
   [{:id 1 :product "Carrots" :category "Vegetables" :amount 4270 :date "1-6-2016" :country "United States"}
    {:id 2 :product "Broccoli" :category "Vegetables" :amount 8239 :date "1-7-2016" :country "United Kingdom"}
@@ -29,7 +29,7 @@ Library provides `pivot` function. `pivot` takes
 
 Let's count our fruits and vegetables:
 
-```
+```clojure
 (pivot []
        [:category]
        data
@@ -38,13 +38,13 @@ Let's count our fruits and vegetables:
 
 Result
 
-```
+```clojure
 ({:category "Vegetables", :count 4} {:category "Fruit", :count 6})
 ```
 
 Let's count sum of amount by categories:
 
-```
+```clojure
 (pivot []
        [:category]
        data
@@ -53,7 +53,7 @@ Let's count sum of amount by categories:
 
 Result
 
-```
+```clojure
 ({:category "Vegetables", :amount 24197} {:category "Fruit", :amount 29355})
 ```
 
@@ -63,7 +63,7 @@ Another example.
  * Group by category, then group by date
  * Let's count products and their sum of amount
  
-```
+```clojure
 (pivot [(fn [x] (> (get x :amount) 1000))]
        [:category :date]
        data
@@ -72,7 +72,7 @@ Another example.
 
 Result
 
-```
+```clojure
 ({:category "Vegetables", :date "1-6-2016", :count 1, :amount 4270}
  {:category "Vegetables", :date "1-7-2016", :count 1, :amount 8239}
  {:category "Vegetables", :date "1-10-2016", :count 1, :amount 2626}
