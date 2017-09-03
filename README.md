@@ -57,6 +57,31 @@ Result
 ({:category "Vegetables", :amount 24197} {:category "Fruit", :amount 29355})
 ```
 
+Another example.
+
+ * Filter products with amount more than 1000
+ * Group by category, then group by date
+ * Let's count products and their sum of amount
+ 
+```
+(pivot [(fn [x] (> (get x :amount) 1000))]
+       [:category :date]
+       data
+       {:count count :amount (fn [x] (->> x (map :amount) (reduce +)))})
+```
+
+Result
+
+```
+({:category "Vegetables", :date "1-6-2016", :count 1, :amount 4270}
+ {:category "Vegetables", :date "1-7-2016", :count 1, :amount 8239}
+ {:category "Vegetables", :date "1-10-2016", :count 1, :amount 2626}
+ {:category "Vegetables", :date "1-11-2016", :count 1, :amount 9062}
+ {:category "Fruit", :date "1-10-2016", :count 1, :amount 8384}
+ {:category "Fruit", :date "1-11-2016", :count 1, :amount 3610}
+ {:category "Fruit", :date "1-16-2016", :count 3, :amount 16744})
+```
+
 ## License
 
 Copyright © 2017 Valeriy Manenkov
