@@ -1,4 +1,4 @@
-(defproject char16t/pivot "0.1.0-SNAPSHOT"
+(defproject char16t/pivot "0.1.0"
   :description "The library provides the ability to convert data structures to
  summarize, analyze, explore and present your data."
   :url "https://github.com/char16t/pivot"
