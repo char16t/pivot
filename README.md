@@ -3,6 +3,8 @@
 The library provides the ability to convert data structures to summarize,
 analyze, explore and present your data.
 
+[![Clojars Project](http://clojars.org/char16t/pivot/latest-version.svg)](http://clojars.org/char16t/pivot)
+
 ## Usage
 
 Library provides `pivot` function. `pivot` takes
