@@ -41,7 +41,7 @@
        (map (partial zipmap ks))
        ))
 
-(defn pivot [filters fs coll final-fn]
+(defn pivot [filters fs final-fn coll]
   (flatten-data (nested-group-by fs
                    (apply-filters filters coll)
                    (vals final-fn)) (concat fs (keys final-fn))

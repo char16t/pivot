@@ -16,13 +16,13 @@
 
 (deftest a-test
   (testing "Test 1"
-    (is (= (pivot [] [:category] data {:count count})
+    (is (= (pivot [] [:category] {:count count} data)
     	   [{:category "Vegetables", :count 4} {:category "Fruit", :count 6}]))
     ))
 
 (deftest b-test
   (testing "Test 2"
-    (is (= (pivot [] [:category] data {:amount (fn [x] (->> x (map :amount) (reduce +)))})
+    (is (= (pivot [] [:category] {:amount (fn [x] (->> x (map :amount) (reduce +)))} data)
     	   [{:category "Vegetables", :amount 24197} {:category "Fruit", :amount 29355}]))
     ))
 
@@ -30,8 +30,8 @@
   (testing "Test 3"
     (is (= (pivot [(fn [x] (> (get x :amount) 1000))]
                   [:category :date]
-                  data
-                  {:count count :amount (fn [x] (->> x (map :amount) (reduce +)))})
+                  {:count count :amount (fn [x] (->> x (map :amount) (reduce +)))}
+		  data)
     	   [{:category "Vegetables", :date "1-6-2016", :count 1, :amount 4270}
 	    {:category "Vegetables", :date "1-7-2016", :count 1, :amount 8239}
             {:category "Vegetables", :date "1-10-2016", :count 1, :amount 2626}
