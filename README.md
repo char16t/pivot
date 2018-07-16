@@ -16,6 +16,18 @@ Library provides `pivot` function. `pivot` takes
 
 ## Usage example
 
+Add library to your project as dependency
+
+```clojure
+[char16t/pivot "0.1.0"]
+```
+
+Import library to file with source code
+
+```clojure
+(require '[pivot.core :as pivot])
+```
+
 Our data set consists of 10 records and 6 fields. Order ID, Product,
 Category, Amount, Date and Country.
 
